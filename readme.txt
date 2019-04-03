@@ -1,15 +1,9 @@
 
-
-Proper install is coming. I apologize for the current
-mess. It was developed on a Windows machine with few
-tools and no internet during a train ride and suffered
-a few rewrites so the filenames aren't very descriptive
-anymore.
-
+Migrated to Python3.
 
 To run, type:
 
-python Amphetype.py
+python3 Amphetype.py
 
 
 Depends on:
@@ -23,5 +17,5 @@ OPTIONAL: py-editdist from http://www.mindrot.org/projects/py-editdist/
  If you don't have the module it will just select random words
  instead
 
-
+TODO: Port to PyQt5.
 
