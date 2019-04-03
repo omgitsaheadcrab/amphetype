@@ -76,10 +76,10 @@ class AmphModel(QAbstractItemModel):
 
     def data(self, index, role=Qt.DisplayRole):
         if not index.isValid():
-           return QVariant()
+           return None
 
         if role != Qt.DisplayRole and role != Qt.UserRole:
-            return QVariant()
+            return None
 
         row, col = index.row(), index.column()
         tab = self.findList(index.parent())
@@ -88,23 +88,23 @@ class AmphModel(QAbstractItemModel):
             return tab[row]
 
         if not (0 <= row < len(tab)) or not (0 <= col < self.cols):
-            return QVariant()
+            return None
 
         data = tab[row][col+self.hidden]
         if data is None:
-            return QVariant()
+            return None
         if self.fmt[col] is None:
-            return QVariant(data)
+            return data
         elif isinstance(self.fmt[col], str):
-            return QVariant(self.fmt[col] % data)
-        return QVariant(self.fmt[col](data))
+            return self.fmt[col] % data
+        return self.fmt[col](data)
 
     def headerData(self, section, orientation, role=Qt.DisplayRole):
         if role != Qt.DisplayRole:
-            return QVariant()
+            return None
         if orientation != Qt.Horizontal:
-            return QVariant()
-        return QVariant(self.head[section])
+            return None
+        return self.head[section]
 
     def sort(self, col, order=Qt.AscendingOrder):
         reverse = order != Qt.AscendingOrder

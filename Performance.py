@@ -133,7 +133,7 @@ class PerformanceHistory(QWidget):
         self.cb_source.addItem("<ALL LESSONS>")
 
         for id, v in DB.fetchall('select rowid,abbreviate(name,30) from source order by name'):
-            self.cb_source.addItem(v, QVariant(id))
+            self.cb_source.addItem(v, id)
         self.editflag = False
 
     def updateData(self, *args):

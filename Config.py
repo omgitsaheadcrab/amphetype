@@ -77,7 +77,7 @@ class AmphSettings(QSettings):
         v = self.value(k)
         if v == None:
             return self.defaults[k]
-        return pickle.loads(str(v.toString()))
+        return pickle.loads(v)
 
     def getFont(self, k):
         qf = QFont()
@@ -91,7 +91,7 @@ class AmphSettings(QSettings):
         p = self.get(k)
         if p == v:
             return
-        self.setValue(k, QVariant(pickle.dumps(v)))
+        self.setValue(k, pickle.dumps(v))
         self.emit(SIGNAL("change"))
         self.emit(SIGNAL("change_" + k), v)
 
