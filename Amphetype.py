@@ -1,5 +1,5 @@
 
-from __future__ import with_statement, division
+
 
 import os
 import sys
@@ -104,7 +104,7 @@ w.show()
 
 app.exec_()
 
-print "exit"
+print("exit")
 DB.commit()
 
 

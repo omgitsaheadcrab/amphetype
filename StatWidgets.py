@@ -1,5 +1,5 @@
 
-from __future__ import division, with_statement
+
 
 import time
 
@@ -26,7 +26,7 @@ class WordModel(AmphModel):
         return self.words
 
     def setData(self, words):
-        self.words = map(list, words)
+        self.words = list(map(list, words))
         self.reset()
 
 
